@@ -61,6 +61,50 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('感谢您的联系，我们会尽快回复。');
     form.reset();
   });
+
+  /**
+   * 几何图形动画
+   * 在 header 内的 canvas 画布中绘制不断移动的几何图形
+   */
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  const shapes = [];
+  const colors = ['#c0392b', '#3498db', '#27ae60', '#8e44ad'];
+
+  function createShape() {
+    const size = Math.random() * 40 + 10;
+    shapes.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      dx: (Math.random() - 0.5) * 2,
+      dy: (Math.random() - 0.5) * 2,
+      size,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      type: Math.random() > 0.5 ? 'rect' : 'circle'
+    });
+  }
+
+  for (let i = 0; i < 30; i++) createShape();
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    shapes.forEach(s => {
+      ctx.fillStyle = s.color;
+      if (s.type === 'rect') {
+        ctx.fillRect(s.x, s.y, s.size, s.size);
+      } else {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size / 2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      s.x += s.dx;
+      s.y += s.dy;
+      if (s.x < 0 || s.x > canvas.width) s.dx *= -1;
+      if (s.y < 0 || s.y > canvas.height) s.dy *= -1;
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
 });
 
 // 将 slideIn 动画样式注入文档
