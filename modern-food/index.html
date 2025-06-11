@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernist Food</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Modernist Food</div>
+        <button class="theme-toggle">切换主题</button>
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#about">关于</a></li>
+            <li><a href="#menu">菜单</a></li>
+            <li><a href="#contact">联系</a></li>
+        </ul>
+    </nav>
+    <header id="home" class="hero">
+        <canvas id="bg-canvas" width="800" height="400"></canvas>
+        <h1>现代主义风格的美食</h1>
+        <p class="subtitle">简约不失奢华的味蕾体验</p>
+    </header>
+    <main>
+        <section id="about" class="about section">
+            <h2>关于我们</h2>
+            <p>我们相信极简主义不仅体现在设计上，也体现在食物的味道中。每一道菜都经过精心搭配，以最少的元素展现最纯粹的美味。</p>
+            <p>无论是包豪斯式的几何摆盘还是布尔乔亚式的奢华体验，在这里都能找到完美平衡。</p>
+        </section>
+        <section id="menu" class="menu section">
+            <h2>现代菜单</h2>
+            <div class="filter">
+                <button data-filter="all" class="filter-btn active">全部</button>
+                <button data-filter="salad" class="filter-btn">沙拉</button>
+                <button data-filter="dessert" class="filter-btn">甜点</button>
+            </div>
+            <div class="gallery">
+                <div class="item salad">
+                    <img src="images/salad1.svg" alt="沙拉" />
+                    <h3>绿色清新沙拉</h3>
+                    <p>融合时令蔬菜，搭配低温烹饪的鸡胸肉，展现自然色彩。</p>
+                </div>
+                <div class="item salad">
+                    <img src="images/salad2.svg" alt="沙拉" />
+                    <h3>柑橘风味沙拉</h3>
+                    <p>甜酸橘子与微苦芝麻菜相互映衬，带来夏日清爽口感。</p>
+                </div>
+                <div class="item dessert">
+                    <img src="images/dessert1.svg" alt="甜点" />
+                    <h3>黑巧慕斯</h3>
+                    <p>采用70%黑巧克力与淡奶油制成，口感丝滑细腻。</p>
+                </div>
+                <div class="item dessert">
+                    <img src="images/dessert2.svg" alt="甜点" />
+                    <h3>烟熏芝士蛋糕</h3>
+                    <p>在传统芝士蛋糕中融入轻微烟熏味，呈现层次感。</p>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact section">
+            <h2>联系与预订</h2>
+            <form id="contact-form">
+                <label for="name">姓名</label>
+                <input type="text" id="name" name="name" required />
+                <label for="email">邮箱</label>
+                <input type="email" id="email" name="email" required />
+                <label for="message">留言</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">发送</button>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">© 2025 Modernist Food</footer>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+</body>
+</html>

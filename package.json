@@ -1,0 +1,10 @@
+{
+  "name": "modern-food-site",
+  "version": "1.0.0",
+  "description": "A modernist style food website",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "author": "",
+  "license": "MIT"
+}
